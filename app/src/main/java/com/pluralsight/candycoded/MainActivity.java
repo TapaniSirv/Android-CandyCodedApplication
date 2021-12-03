@@ -1,5 +1,7 @@
 package com.pluralsight.candycoded;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -74,6 +76,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+      Intent intent = new Intent(this, InfoActivity.class);
+      startActivity(intent);
+      return super.onOptionsItemSelected(item);
   }
 
   @Override
