@@ -78,12 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
   }
 
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-      Intent intent = new Intent(this, InfoActivity.class);
-      startActivity(intent);
-      return super.onOptionsItemSelected(item);
-  }
+
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,6 +89,12 @@ public class MainActivity extends AppCompatActivity {
   // ***
   // TODO - Task 1 - Show Store Information Activity
   // ***
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    Intent intent = new Intent(this, InfoActivity.class);
+    startActivity(intent);
+    return super.onOptionsItemSelected(item);
+  }
 
   private void addCandiesToDatabase(Candy[] candies) {
     SQLiteDatabase db = candyDbHelper.getWritableDatabase();
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
       values.put(CandyContract.CandyEntry.COLUMN_NAME_IMAGE, candy.image);
 
       db.insert(CandyContract.CandyEntry.TABLE_NAME, null, values);
+      Log.d("VALUES:","is" + values);
     }
   }
 }
